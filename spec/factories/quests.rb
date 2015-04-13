@@ -3,7 +3,7 @@ FactoryGirl.define do
     name "My Continuous Goal"
 		rank "Newborn"
 		start_day "2015-04-13 10:36:04"
-		goal "30"
+		goal "40"
 		last_record "0"
   end
 
