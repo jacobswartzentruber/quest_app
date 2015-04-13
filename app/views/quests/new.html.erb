@@ -1,0 +1,17 @@
+<h1>Create a new Quest</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@quest) do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+      
+      <%= f.label :goal %>
+      <%= f.number_field :goal, class: "form-control" %>
+      
+      <%= f.submit "Create Quest", class: "btn btn-primary" %>
+    
+    <% end %>
+  </div>
+</div>
