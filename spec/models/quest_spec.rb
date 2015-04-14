@@ -17,14 +17,6 @@ RSpec.describe Quest, type: :model do
   	expect(build(:quest, goal: 0)).to_not be_valid
   end
 
-  it "starts with a rank of 'Newborn'" do
-  	expect(build(:quest).rank).to eql("Newborn")
-  end
-
-  it "starts with a last_record of 0" do
-  	expect(build(:quest).last_record).to eql(0)
-  end
-
   subject { create(:quest) }
 
   describe "#percent_last_record" do

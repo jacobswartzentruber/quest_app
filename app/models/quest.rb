@@ -15,8 +15,9 @@ class Quest < ActiveRecord::Base
 	end
 
 	# Determine what percent toward goal has been achieved
-	def percent_complete 
-		days_complete*100/self.goal
+	def percent_complete
+		# If goal reached, set percent to 100
+		days_complete < self.goal ? days_complete*100/self.goal : 100
 	end
 
 	# Determine what percent from current progress until last known record, if any

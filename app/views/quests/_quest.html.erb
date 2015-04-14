@@ -4,18 +4,27 @@
   	<%= quest.rank %> (next level in blank days)
   </span>
   <span class="timestamp">
-  	Quest began on <%= quest.start_day.strftime("%A %B %d, %Y") %>
-    <%= link_to "Reset Progress", reset_quest_path(quest), :method => :put, class: "btn btn-sm btn-warning" %>
+  	Quest began on <%= quest.start_day.strftime("%B %d, %Y") %>
+    <%= link_to "Reset Progress", reset_quest_path(quest), method: :put,
+                                  data: { confirm: "Are you sure you want to RESET all progress?" },
+                                  class: "btn btn-xs btn-warning" %>
+    <%= link_to "Delete Quest", quest_path(quest), method: :delete,
+                                  data: { confirm: "Are you sure you want to DELETE this quest?" },
+                                  class: "btn btn-xs btn-danger" %>
   </span>
   <div class="progress">
     <div class="progress-bar progress-bar-success" style="width: <%=quest.percent_complete%>%">
-      <span><%=quest.days_complete%> days</span>
+      <% if quest.days_complete < quest.goal %>
+        <span><%=quest.days_complete%> days</span>
+      <% else %>
+        <span>Quest complete! <%=quest.days_complete%> days so far</span>
+      <% end %>
     </div>
     <div class="progress-bar" style="width: <%=quest.percent_last_record%>%">
-      <span><%=quest.days_last_record%> days</span>
+      <span><%=quest.days_last_record%> days old record</span>
     </div>
     <div class="progress-bar progress-bar-info" style="width: <%=quest.percent_left%>%">
-      <span><%=quest.days_left%> days</span>
+      <span><%=quest.days_left%> days left</span>
     </div>
   </div>
 </div>
