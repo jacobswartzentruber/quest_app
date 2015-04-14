@@ -4,11 +4,11 @@
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@quest) do |f| %>
 
-      <%= f.label :name %>
+      <%= f.label :name, "What would you like to title your quest?" %>
       <%= f.text_field :name, class: "form-control" %>
       
-      <%= f.label :goal %>
-      <%= f.number_field :goal, class: "form-control" %>
+      <%= f.label :goal, "For how many days would you like this quest to run?" %>
+      <%= f.number_field :goal, value: 1, min: 1, class: "form-control" %>
       
       <%= f.submit "Create Quest", class: "btn btn-primary" %>
     

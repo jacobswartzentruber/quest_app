@@ -60,20 +60,19 @@ p {
 
 /* quests */
 
-.quests {
-  list-style: none;
-  padding: 0;
-  li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-  }
+.quest {
+  padding: 10px 0 0 0;
   .title {
     display: block;
+    float: left;
   }
   .timestamp {
     color: $gray-light;
     display: block;
-    margin-left: 20px;
+    float: right;
+  }
+  .progress {
+    clear: both;
   }
 }
 

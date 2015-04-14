@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413222526) do
+ActiveRecord::Schema.define(version: 20150413153601) do
 
   create_table "quests", force: :cascade do |t|
     t.string   "name"
-    t.string   "rank"
-    t.date     "start_day"
+    t.string   "rank",        default: "\"Newborn\""
+    t.date     "start_day",   default: '2015-04-14'
     t.integer  "goal"
-    t.integer  "last_record"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "last_record", default: 0
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
 end

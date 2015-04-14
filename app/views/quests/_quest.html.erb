@@ -1,21 +1,20 @@
-<div id="quest-<%= quest.id %>">
+<div class="quest" id="quest-<%= quest.id %>">
   <span class="title">
   	<%= quest.name %> - 
-  	<%= quest.rank %>
-    <%= quest.percent_complete %>
+  	<%= quest.rank %> (next level in blank days)
   </span>
   <span class="timestamp">
   	Created on <%= quest.start_day.strftime("%A %B %d, %Y") %>
   </span>
   <div class="progress">
     <div class="progress-bar progress-bar-success" style="width: <%=quest.percent_complete%>%">
-      <span class="sr-only">35% Complete (success)</span>
+      <span><%=quest.days_complete%> days</span>
     </div>
     <div class="progress-bar" style="width: <%=quest.percent_last_record%>%">
-      <span class="sr-only">20% Complete (default)</span>
+      <span><%=quest.days_last_record%> days</span>
     </div>
     <div class="progress-bar progress-bar-info" style="width: <%=quest.percent_left%>%">
-      <span class="sr-only">20% Complete (info)</span>
+      <span><%=quest.days_left%> days</span>
     </div>
   </div>
 </div>

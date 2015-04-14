@@ -3,14 +3,26 @@ class Quest < ActiveRecord::Base
 	validates :name, presence: true
 	validates :goal, presence: true, numericality: { only_integer: true, greater_than: 0}
 
+	def days_complete
+		(Date.today-self.start_day).to_i
+	end
+
+	def days_last_record
+		self.last_record > days_complete ? self.last_record-days_complete : 0
+	end
+
+	def days_left
+		self.goal - days_complete - days_last_record
+	end
+
 	# Determine what percent toward goal has been achieved
 	def percent_complete 
-		(Date.today-self.start_day).to_i*100/self.goal
+		days_complete*100/self.goal
 	end
 
 	# Determine what percent from current progress until last known record, if any
 	def percent_last_record
-		self.last_record > (Date.today-self.start_day).to_i ? (self.last_record*100/self.goal)-percent_complete : 0
+		days_last_record*100/self.goal
 	end
 
 	# Determine what percent left until user reaches goal
@@ -20,8 +32,7 @@ class Quest < ActiveRecord::Base
 
 	private
 		def finalize_quest
-			self.rank = "Newborn"
-			self.start_day = Date.today-4.days
-			self.last_record = 7
+			self.start_day = Date.today-6.days
+			self.last_record = 4
 		end
 end
