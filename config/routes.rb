@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'quests#index'
-  resources :quests
+  resources :quests do
+    member do
+      put :reset
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

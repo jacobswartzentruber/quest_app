@@ -1,5 +1,4 @@
 class Quest < ActiveRecord::Base
-	before_save :finalize_quest
 	validates :name, presence: true
 	validates :goal, presence: true, numericality: { only_integer: true, greater_than: 0}
 
@@ -29,10 +28,4 @@ class Quest < ActiveRecord::Base
 	def percent_left 
 		100-percent_complete-percent_last_record
 	end
-
-	private
-		def finalize_quest
-			self.start_day = Date.today-6.days
-			self.last_record = 4
-		end
 end

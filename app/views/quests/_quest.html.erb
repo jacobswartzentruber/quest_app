@@ -4,7 +4,8 @@
   	<%= quest.rank %> (next level in blank days)
   </span>
   <span class="timestamp">
-  	Created on <%= quest.start_day.strftime("%A %B %d, %Y") %>
+  	Quest began on <%= quest.start_day.strftime("%A %B %d, %Y") %>
+    <%= link_to "Reset Progress", reset_quest_path(quest), :method => :put, class: "btn btn-sm btn-warning" %>
   </span>
   <div class="progress">
     <div class="progress-bar progress-bar-success" style="width: <%=quest.percent_complete%>%">
