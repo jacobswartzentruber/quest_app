@@ -1,4 +1,5 @@
 class Quest < ActiveRecord::Base
+	before_save :set_start_day
 	validates :name, presence: true
 	validates :goal, presence: true, numericality: { only_integer: true, greater_than: 0}
 
@@ -29,4 +30,9 @@ class Quest < ActiveRecord::Base
 	def percent_left 
 		100-percent_complete-percent_last_record
 	end
+
+	private
+		def set_start_day
+			self.start_day = Date.today
+		end
 end

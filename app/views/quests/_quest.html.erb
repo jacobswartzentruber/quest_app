@@ -1,7 +1,7 @@
 <div class="quest" id="quest-<%= quest.id %>">
   <span class="title">
   	<%= quest.name %> - 
-  	<%= quest.rank %> (next level in blank days)
+  	<%= get_rank_name(quest) %>
   </span>
   <span class="timestamp">
   	Quest began on <%= quest.start_day.strftime("%B %d, %Y") %>
@@ -15,16 +15,16 @@
   <div class="progress">
     <div class="progress-bar progress-bar-success" style="width: <%=quest.percent_complete%>%">
       <% if quest.days_complete < quest.goal %>
-        <span><%=quest.days_complete%> days</span>
+        <span><%=pluralize(quest.days_complete, 'day')%></span>
       <% else %>
-        <span>Quest complete! <%=quest.days_complete%> days so far</span>
+        <span>Quest complete! <%=pluralize(quest.days_complete, 'day')%> and counting...</span>
       <% end %>
     </div>
     <div class="progress-bar" style="width: <%=quest.percent_last_record%>%">
-      <span><%=quest.days_last_record%> days old record</span>
+      <span><%=pluralize(quest.days_last_record, 'day')%> old record</span>
     </div>
     <div class="progress-bar progress-bar-info" style="width: <%=quest.percent_left%>%">
-      <span><%=quest.days_left%> days left</span>
+      <span><%=pluralize(quest.days_left, 'day')%> left</span>
     </div>
   </div>
 </div>
