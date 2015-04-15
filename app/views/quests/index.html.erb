@@ -2,7 +2,15 @@
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-  	<%= link_to "Create Quest", new_quest_path, class: "btn btn-primary"%>
-		<%= render @quests %>
+  	<%= link_to "Create Quest", new_quest_path, class: "btn btn-primary pull-right"%>
+  	<div class="color-key">
+  		<strong>Progress Bar Key</strong> - 
+  		<span class="label label-success">Days Completed</span>
+  		<span class="label label-primary">Days Until Best Record</span>
+  		<span class="label label-info">Days Until Goal</span>
+  	</div>
+  	<div class="quests">
+			<%= render @quests %>
+		</div>
 	</div>
 </div>
