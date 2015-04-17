@@ -1,7 +1,9 @@
 class Quest < ActiveRecord::Base
-	before_save :set_start_day
+	belongs_to :user
+	before_create :set_start_day
 	validates :name, presence: true
 	validates :goal, presence: true, numericality: { only_integer: true, greater_than: 0}
+	validates :user_id, presence: true
 
 	def days_complete
 		(Date.today-self.start_day).to_i

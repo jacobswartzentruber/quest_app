@@ -1,19 +1,21 @@
 class QuestsController < ApplicationController
 
+	before_action :authenticate_user!
+
 	def index
-		@quests = Quest.all
+		@quests = current_user.quests
 	end
 
 	def show
-		@quest = Quest.find(params[:id])
+		@quest = current_user.quests.find(params[:id])
 	end
 
 	def new
-		@quest = Quest.new
+		@quest = current_user.quests.build()
 	end
 
 	def create
-		@quest = Quest.new(quest_params)
+		@quest = current_user.quests.build(quest_params)
 		if @quest.save
 			flash[:success] = "Quest successfully created"
 			redirect_to quests_path
@@ -23,14 +25,14 @@ class QuestsController < ApplicationController
 	end
 
 	def destroy
-		Quest.find(params[:id]).destroy
+		current_user.quests.find(params[:id]).destroy
 		flash[:success] = "Quest successfully deleted"
 		redirect_to quests_path
 	end
 
 	# Reset current_days and last_record back to zero
 	def reset
-		@quest = Quest.find(params[:id])
+		@quest = current_user.quests.find(params[:id])
 		# If quest already complete, update goal to last_record
 		@quest.days_complete > @quest.goal ? new_goal = @quest.days_complete : new_goal = @quest.goal
 		# If current days is the longest so far, update last_record
