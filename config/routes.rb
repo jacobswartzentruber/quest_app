@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'quests#index'
   resources :quests do
     member do
