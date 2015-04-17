@@ -3,6 +3,7 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@quest) do |f| %>
+    	<%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :name, "What would you like to title your quest?" %>
       <%= f.text_field :name, class: "form-control" %>

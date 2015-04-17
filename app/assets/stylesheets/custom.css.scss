@@ -58,11 +58,51 @@ p {
   line-height: 1.7em;
 }
 
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.9em;
+  color: #336666;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: #336666;
+  text-decoration: none;
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+
+footer small {
+  float: left;
+  padding-left: 10px;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
 /* quests */
 
 .quests {
   clear: both;
-  div:first-child {
+  > div {
     padding: 10px 0 0 0;
   }
   .title {
