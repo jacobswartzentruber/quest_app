@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
+  get 'home' => 'static_pages#home'
+
   devise_for :users
   resources :quests do
     member do
       put :reset
     end
   end
-  root 'quests#index'
+  root 'static_pages#home'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
