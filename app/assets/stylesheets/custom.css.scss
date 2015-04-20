@@ -103,7 +103,10 @@ footer small {
 .quests {
   clear: both;
   > div {
-    padding: 10px 0 0 0;
+    padding: 10px;
+    margin: 10px 0px;
+    background-color: #e5ecf0;
+    border-radius: 10px;
   }
   .title {
     display: block;
