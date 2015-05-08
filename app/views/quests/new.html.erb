@@ -5,11 +5,11 @@
     <%= form_for(@quest) do |f| %>
     	<%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :name, "What would you like to title your quest?" %>
+      <%= f.label :name, "What is your quest?" %>
       <%= f.text_field :name, class: "form-control" %>
       
-      <%= f.label :goal, "For how many days would you like this quest to run?" %>
-      <%= f.number_field :goal, value: 1, min: 1, class: "form-control" %>
+      <%= f.label :goal, "What is your time goal in days for this quest? (leave at 0 if no time goal)" %>
+      <%= f.number_field :goal, value: 0, min: 0, class: "form-control" %>
       
       <%= f.submit "Create Quest", class: "btn btn-primary" %>
     
