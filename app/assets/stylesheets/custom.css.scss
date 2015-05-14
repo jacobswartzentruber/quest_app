@@ -123,6 +123,21 @@ footer small {
   }
 }
 
+/* Jumbotron */
+.jumbotron {
+  background-image: image-url("quest-feature-faded.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  h1 {
+    color: #fff;
+    text-shadow: 2px 2px 4px #000000;
+  }
+  h2 {
+    color: #fff;
+    text-shadow: 1px 1px 2px #000000;
+  }
+}
+
 /* Miscellaneous  */
 
 .debug_dump {
